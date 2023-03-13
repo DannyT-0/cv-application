@@ -1,0 +1,27 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+
+.header-container{
+  background-color: coral;
+  height: 50px;
+  
+}
+
+.basic-info, .education-info, .work-experience{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 10px;
+  
+}
+
+
+
+input{
+  padding: 5px;
+  margin: 5px;
+}
+
