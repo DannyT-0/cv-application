@@ -40,7 +40,7 @@ export default function Work(props) {
 					onChange={props.onChange}
 				/>
 
-				<button>Submit</button>
+				{/* <button>Submit</button> */}
 			</fieldset>
 		</form>
 	);
