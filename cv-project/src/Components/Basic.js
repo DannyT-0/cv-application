@@ -29,7 +29,6 @@ export default function Basic(props) {
 						placeholder="Phone Number"
 						onChange={props.onChange}
 					/>
-					{/* <button>Submit</button> */}
 				</fieldset>
 			</form>
 		</div>

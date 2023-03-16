@@ -32,7 +32,18 @@ function App() {
 		});
 	}
 
-	console.log(formInfo);
+	function handleClick(e) {
+		e.preventDefault();
+		formInfo.name ? console.log("truthy") : console.log("falsy");
+		// const inputInfo = [{}];
+		// inputInfo.push(formInfo);
+	}
+
+	// if the input's are truthy and add is pressed,
+	//    the info is appended onto the CV section
+	//
+
+	// console.log(formInfo);
 
 	return (
 		<div>
@@ -51,6 +62,7 @@ function App() {
 						degree={formInfo.degree}
 						schoolStart={formInfo.schoolStart}
 						schoolEnd={formInfo.schoolEnd}
+						handleClick={handleClick}
 					/>
 					<Work
 						onChange={handleChange}
@@ -59,6 +71,7 @@ function App() {
 						taskDescription={formInfo.taskDescription}
 						workStart={formInfo.workStart}
 						workEnd={formInfo.workEnd}
+						handleClick={handleClick}
 					/>
 				</div>
 				<Letter

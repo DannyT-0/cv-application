@@ -36,7 +36,8 @@ export default function Education(props) {
 					onChange={props.onChange}
 				/>
 
-				{/* <button>Submit</button> */}
+				<button onClick={props.handleClick}>Add</button>
+				<button onClick={props.handleClick}>Delete</button>
 			</fieldset>
 		</form>
 	);
