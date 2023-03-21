@@ -67,6 +67,14 @@ display: flex;
   margin-bottom: 10px;
 }
 
+.phone-section, .email-section{
+  display: flex;
+}
+
+.phone-icon, .email-icon{
+  height: 18px;
+}
+
 button{
   align-items: center;
   background-color:  rgb(89, 129, 240);
