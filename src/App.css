@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.header-container {
+  background-color: rgb(89, 129, 240);
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main-container {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.letter-container {
+  flex: 1;
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+fieldset {
+  border: none;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+legend {
+  font-weight: bold;
+  color: rgb(89, 129, 240);
+  padding: 0 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  background-color: rgb(89, 129, 240);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(70, 110, 220);
+}
+
+h1, h2, h3 {
+  color: rgb(89, 129, 240);
+  margin-bottom: 10px;
+}
+
+.basic-info-section {
+  margin-bottom: 20px;
+}
+
+.basic-info-section-two {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.email-section, .phone-section, .website-section {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.email-icon, .phone-icon {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.education-info-section, .work-info-section, .project-info-section {
+  margin-bottom: 20px;
+}
+
+.left-side {
+  margin-bottom: 10px;
+}
+
+.right-side {
+  font-style: italic;
+}
+
+.textarea-section {
+  margin-top: 10px;
+}
+
+.skills-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-output {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .main-container {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+}
