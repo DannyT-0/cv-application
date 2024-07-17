@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useRef } from "react";
-import { useReactToPrint } from "react-to-pdf";
+import React, { useRef, useState } from "react";
+import { useReactToPrint } from "react-to-print";
 import Header from "./Components/Header";
 import Letter from "./Components/Letter";
 import Basic from "./Components/Basic";
@@ -10,23 +10,23 @@ import Projects from "./Components/Projects";
 import Skills from "./Components/Skills";
 
 function App() {
-	const [basicInfo, setBasicInfo] = React.useState({
+	const [basicInfo, setBasicInfo] = useState({
 		name: "",
 		email: "",
 		phoneNumber: "",
 		website: "",
 	});
 
-	const [educationInfo, setEducationInfo] = React.useState([]);
-	const [currentEducation, setCurrentEducation] = React.useState({
+	const [educationInfo, setEducationInfo] = useState([]);
+	const [currentEducation, setCurrentEducation] = useState({
 		collegeName: "",
 		degree: "",
 		schoolStart: "",
 		schoolEnd: "",
 	});
 
-	const [workInfo, setWorkInfo] = React.useState([]);
-	const [currentWork, setCurrentWork] = React.useState({
+	const [workInfo, setWorkInfo] = useState([]);
+	const [currentWork, setCurrentWork] = useState({
 		companyName: "",
 		positionTitle: "",
 		taskDescription: "",
@@ -34,15 +34,15 @@ function App() {
 		workEnd: "",
 	});
 
-	const [projects, setProjects] = React.useState([]);
-	const [currentProject, setCurrentProject] = React.useState({
+	const [projects, setProjects] = useState([]);
+	const [currentProject, setCurrentProject] = useState({
 		projectName: "",
 		projectDescription: "",
 		projectTechnologies: "",
 	});
 
-	const [skills, setSkills] = React.useState([]);
-	const [currentSkill, setCurrentSkill] = React.useState("");
+	const [skills, setSkills] = useState([]);
+	const [currentSkill, setCurrentSkill] = useState("");
 
 	function handleBasic(event) {
 		const { name, value } = event.target;
@@ -71,10 +71,8 @@ function App() {
 		});
 	}
 
-	function handleDeleteEducation(index) {
-		setEducationInfo((prevEducation) =>
-			prevEducation.filter((_, i) => i !== index)
-		);
+	function handleDeleteEducation() {
+		setEducationInfo((prevEducation) => prevEducation.slice(0, -1));
 	}
 
 	function handleWork(event) {
@@ -97,8 +95,8 @@ function App() {
 		});
 	}
 
-	function handleDeleteWork(index) {
-		setWorkInfo((prevWork) => prevWork.filter((_, i) => i !== index));
+	function handleDeleteWork() {
+		setWorkInfo((prevWork) => prevWork.slice(0, -1));
 	}
 
 	function handleProjectChange(event) {
@@ -119,8 +117,8 @@ function App() {
 		});
 	}
 
-	function handleDeleteProject(index) {
-		setProjects((prevProjects) => prevProjects.filter((_, i) => i !== index));
+	function handleDeleteProject() {
+		setProjects((prevProjects) => prevProjects.slice(0, -1));
 	}
 
 	function handleSkillChange(event) {
@@ -135,8 +133,8 @@ function App() {
 		}
 	}
 
-	function handleDeleteSkill(index) {
-		setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
+	function handleDeleteSkill() {
+		setSkills((prevSkills) => prevSkills.slice(0, -1));
 	}
 
 	const componentRef = useRef();
@@ -154,34 +152,42 @@ function App() {
 						onChange={handleEducation}
 						handleAdd={handleAddEducation}
 						handleDelete={handleDeleteEducation}
-						{...currentEducation}
+						currentEducation={currentEducation}
+						educationInfo={educationInfo}
 					/>
 					<Work
 						onChange={handleWork}
 						handleAdd={handleAddWork}
 						handleDelete={handleDeleteWork}
-						{...currentWork}
+						currentWork={currentWork}
+						workInfo={workInfo}
 					/>
 					<Projects
 						onChange={handleProjectChange}
 						handleAdd={handleAddProject}
 						handleDelete={handleDeleteProject}
-						{...currentProject}
+						currentProject={currentProject}
+						projects={projects}
 					/>
 					<Skills
 						onChange={handleSkillChange}
 						handleAdd={handleAddSkill}
 						handleDelete={handleDeleteSkill}
 						currentSkill={currentSkill}
+						skills={skills}
 					/>
 					<button onClick={handlePrint}>Download PDF</button>
 				</div>
 				<Letter
 					ref={componentRef}
 					basicInfo={basicInfo}
+					currentEducation={currentEducation}
 					educationInfo={educationInfo}
+					currentWork={currentWork}
 					workInfo={workInfo}
+					currentProject={currentProject}
 					projects={projects}
+					currentSkill={currentSkill}
 					skills={skills}
 				/>
 			</div>

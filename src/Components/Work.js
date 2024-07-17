@@ -11,6 +11,7 @@ export default function Work(props) {
 					id="companyName"
 					placeholder="Company Name"
 					onChange={props.onChange}
+					value={props.currentWork.companyName || ""}
 				/>
 				<input
 					type="text"
@@ -18,12 +19,14 @@ export default function Work(props) {
 					id="positionTitle"
 					placeholder="Title of Position"
 					onChange={props.onChange}
+					value={props.currentWork.positionTitle || ""}
 				/>
 				<textarea
 					name="taskDescription"
 					id="taskDescription"
 					placeholder="Tasks"
 					onChange={props.onChange}
+					value={props.currentWork.taskDescription || ""}
 				/>
 				<input
 					type="text"
@@ -31,6 +34,7 @@ export default function Work(props) {
 					id="workStart"
 					placeholder="Start Date"
 					onChange={props.onChange}
+					value={props.currentWork.workStart || ""}
 				/>
 				<input
 					type="text"
@@ -38,11 +42,26 @@ export default function Work(props) {
 					id="workEnd"
 					placeholder="End Date"
 					onChange={props.onChange}
+					value={props.currentWork.workEnd || ""}
 				/>
-
-				<button onClick={props.handleClick}>Add</button>
-				<button onClick={props.handleClick}>Delete</button>
+				<div className="button-group">
+					<button onClick={props.handleAdd}>Add</button>
+					<button
+						onClick={props.handleDelete}
+						disabled={!props.workInfo || props.workInfo.length === 0}
+					>
+						Delete Last Entry
+					</button>
+				</div>
 			</fieldset>
+			{props.workInfo &&
+				props.workInfo.map((work, index) => (
+					<div key={index}>
+						<p>
+							{work.companyName} - {work.positionTitle}
+						</p>
+					</div>
+				))}
 		</form>
 	);
 }
