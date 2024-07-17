@@ -23,11 +23,13 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .main-container {
   flex: 1;
   margin-right: 40px;
+  min-width: 300px;
 }
 
 .letter-container {
@@ -36,6 +38,10 @@ body {
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-height: 1056px;
+  overflow-y: auto;
+  min-width: 300px;
+  max-width: 800px;
 }
 
 fieldset {
@@ -45,6 +51,8 @@ fieldset {
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 legend {
@@ -80,9 +88,19 @@ button:hover {
   background-color: rgb(70, 110, 220);
 }
 
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 h1, h2, h3 {
   color: rgb(89, 129, 240);
   margin-bottom: 10px;
+}
+
+h2 {
+  clear: both;
+  padding-top: 20px;
 }
 
 .basic-info-section {
@@ -91,8 +109,8 @@ h1, h2, h3 {
 
 .basic-info-section-two {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .email-section, .phone-section, .website-section {
@@ -106,20 +124,43 @@ h1, h2, h3 {
   margin-right: 5px;
 }
 
-.education-info-section, .work-info-section, .project-info-section {
-  margin-bottom: 20px;
-}
-
-.left-side {
+.education-info-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
-.right-side {
-  font-style: italic;
+.education-info-section .left-side {
+  flex: 1;
+  min-width: 60%;
 }
 
-.textarea-section {
-  margin-top: 10px;
+.education-info-section .right-side {
+  text-align: right;
+}
+
+.work-info-section {
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.work-info-section .left-side {
+  float: left;
+}
+
+.work-info-section .right-side {
+  float: right;
+}
+
+.work-info-section .textarea-section {
+  clear: both;
+  padding-top: 10px;
+}
+
+.project-info-section {
+  margin-bottom: 20px;
+  clear: both;
 }
 
 .skills-section {
@@ -139,6 +180,26 @@ hr {
   border: none;
   border-top: 1px solid #ddd;
   margin: 20px 0;
+  clear: both;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.tasks-output, .project-description-output {
+  padding-left: 20px;
+}
+
+.tasks-output li, .project-description-output li {
+  margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {

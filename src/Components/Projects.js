@@ -11,14 +11,14 @@ export default function Projects(props) {
 					id="projectName"
 					placeholder="Project Name"
 					onChange={props.onChange}
-					value={props.projectName}
+					value={props.currentProject.projectName || ""}
 				/>
 				<textarea
 					name="projectDescription"
 					id="projectDescription"
 					placeholder="Project Description"
 					onChange={props.onChange}
-					value={props.projectDescription}
+					value={props.currentProject.projectDescription || ""}
 				/>
 				<input
 					type="text"
@@ -26,10 +26,24 @@ export default function Projects(props) {
 					id="projectTechnologies"
 					placeholder="Technologies Used"
 					onChange={props.onChange}
-					value={props.projectTechnologies}
+					value={props.currentProject.projectTechnologies || ""}
 				/>
-				<button onClick={props.handleAdd}>Add</button>
+				<div className="button-group">
+					<button onClick={props.handleAdd}>Add</button>
+					<button
+						onClick={props.handleDelete}
+						disabled={!props.projects || props.projects.length === 0}
+					>
+						Delete Last Entry
+					</button>
+				</div>
 			</fieldset>
+			{props.projects &&
+				props.projects.map((project, index) => (
+					<div key={index}>
+						<p>{project.projectName}</p>
+					</div>
+				))}
 		</form>
 	);
 }
